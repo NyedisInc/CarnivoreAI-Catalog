@@ -54,8 +54,8 @@ def changed_paths(repo_root: Path, base: str, head: str) -> List[str]:
     return sorted(line for line in result.stdout.splitlines() if line.strip())
 
 
-#: Every folder that holds a publishable item: skills, loadouts, themes and
-#: plugins. A change under any of them needs its release.
+#: Every folder that holds a publishable item: skills, loadouts, themes,
+#: plugins and mods. A change under any of them needs its release.
 ITEM_FOLDERS = tuple(FOLDER_FOR_KIND.values())
 
 

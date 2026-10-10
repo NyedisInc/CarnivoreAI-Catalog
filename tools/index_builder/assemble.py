@@ -38,6 +38,7 @@ from .loadouts import MANIFEST, check_members, parse_loadout
 from .releases import (
     FOLDER_FOR_KIND,
     KIND_LOADOUT,
+    KIND_MOD,
     KIND_PLUGIN,
     KIND_SKILL,
     KIND_THEME,
@@ -327,8 +328,12 @@ def _loadout_item(
     }
 
 
-#: The manifest each of the two data kinds is carded from.
-_MANIFEST_FOR_KIND = {KIND_THEME: "theme.json", KIND_PLUGIN: ".claude-plugin/plugin.json"}
+#: The manifest each manifest-carded kind is carded from.
+_MANIFEST_FOR_KIND = {
+    KIND_THEME: "theme.json",
+    KIND_PLUGIN: ".claude-plugin/plugin.json",
+    KIND_MOD: ".claude-plugin/plugin.json",
+}
 
 
 def _manifest_item(
@@ -357,7 +362,7 @@ def _manifest_item(
         manifest = json.loads(_git(repo_root, "show", f"{latest.commit}:{where}"))
     except json.JSONDecodeError as exc:
         raise ReleaseRefused(f"{where}: is not JSON at {latest.commit}: {exc}") from exc
-    description = str(manifest.get("description") or f"{name} plugin")
+    description = str(manifest.get("description") or f"{name} {kind}")
     title = str(manifest.get("name") or name) if kind == KIND_THEME else name
     return {
         "id": f"{handle}/{name}",

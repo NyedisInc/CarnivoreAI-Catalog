@@ -26,7 +26,7 @@ from tests.test_builder import HANDLE, SKILL, SLUG, _commit
 from tests.test_builder import catalog  # noqa: F401  (fixture)
 from tests.test_kind_vectors import VECTORS, members_of
 
-FOLDERS = {"theme": "themes", "plugin": "plugins"}
+FOLDERS = {"theme": "themes", "plugin": "plugins", "mod": "mods"}
 
 
 def _vector(vector_id: str) -> tuple[str, Dict[str, bytes]]:

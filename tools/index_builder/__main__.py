@@ -728,6 +728,7 @@ def _blocked_review_stands(
 _STAGED_MANIFESTS = {
     "skill": "SKILL.md",
     "theme": "theme.json",
+    "mod": "hooks/hooks.json",
     "plugin": ".claude-plugin/plugin.json",
 }
 
