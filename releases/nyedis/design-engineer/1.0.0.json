@@ -1,0 +1,11 @@
+{
+  "statement": "carnivore-release-v1\nskill\nnyedis\ndesign-engineer\n1.0.0\nNyedisInc/CarnivoreAI-Catalog\nskills/nyedis/design-engineer\nd11f9791c5b40617c18402e66fa175cf2733d39d\naeaacd1cc67d2f29e7d2aa42ab55d366a5b61c3adc75a23ea9a3c3208fd7476f\n",
+  "sig": {
+    "key_id": "3463B8E83B44738B",
+    "sig": "RUSLc0Q76LhjNJOJ/gRCbaa6Ll6EJag6GQOG6gg+bgIlsany/7ePHLjOGeM/T10ZiteYuh2tpGBQFOSpHMzx5+dhE8IN1L217gc=",
+    "tc": "timestamp:1791617321\tfile:statement-0001.txt\thashed",
+    "gsig": "O/f/Vi2eo3okWBva6Qdg5GiCRTx6Qo7E05QtJnYiKK/C15kd4gekEHwCCeiKFspn7DZuRrgJPxeYReoQvPG4Bg=="
+  },
+  "commit": "d11f9791c5b40617c18402e66fa175cf2733d39d",
+  "digest": "aeaacd1cc67d2f29e7d2aa42ab55d366a5b61c3adc75a23ea9a3c3208fd7476f"
+}

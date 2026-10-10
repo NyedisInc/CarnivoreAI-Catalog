@@ -1,0 +1,11 @@
+{
+  "statement": "carnivore-release-v1\ntheme\nnyedis\nriot\n1.0.0\nNyedisInc/CarnivoreAI-Catalog\nthemes/nyedis/riot\nd11f9791c5b40617c18402e66fa175cf2733d39d\n64230d816f571f038444ca95120dcd422ba1a6ff350ec27502abce86de65f7e5\n",
+  "sig": {
+    "key_id": "3463B8E83B44738B",
+    "sig": "RUSLc0Q76LhjNK/JHoGYwCxHQKrQ6dZQ2k1ar7g3OW4MSFM2EtJ/HcLE8rLRlR9UxB2zium9p+rIqCoVhoXR8aLIhS7EQ6mzEAo=",
+    "tc": "timestamp:1791617321\tfile:statement-0020.txt\thashed",
+    "gsig": "X14iKmJlTeCyvdTQnP2ZsH/NH5xeL10TXh1DJcSgPVh0e6cBhUMIrj20a2iwq/Ax2UMzFTlRPvOvcIeLlavKCg=="
+  },
+  "commit": "d11f9791c5b40617c18402e66fa175cf2733d39d",
+  "digest": "64230d816f571f038444ca95120dcd422ba1a6ff350ec27502abce86de65f7e5"
+}

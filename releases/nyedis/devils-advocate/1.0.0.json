@@ -1,0 +1,11 @@
+{
+  "statement": "carnivore-release-v1\nskill\nnyedis\ndevils-advocate\n1.0.0\nNyedisInc/CarnivoreAI-Catalog\nskills/nyedis/devils-advocate\nd11f9791c5b40617c18402e66fa175cf2733d39d\n9ebf5b3273a44f6ea9072d95a04aec44fecee97354cc2a297ead8993e679f94b\n",
+  "sig": {
+    "key_id": "3463B8E83B44738B",
+    "sig": "RUSLc0Q76LhjNHiB6lJPLBpCPaq8yKef3vY/bfuUKFw5W2ebHkROwS8YcCBR3SoZkWzd3bvwy5eGSe/u1R7fzBbb4N1emzcEqQI=",
+    "tc": "timestamp:1791617321\tfile:statement-0002.txt\thashed",
+    "gsig": "ipXSg7aP1A0LM8QmnXSO9f6ibB7nlJggU7ikPSYYyrkJgOz5PIERvDEMYsJ1qIvor1GbFRJEIo9VBQ3HRg0GCg=="
+  },
+  "commit": "d11f9791c5b40617c18402e66fa175cf2733d39d",
+  "digest": "9ebf5b3273a44f6ea9072d95a04aec44fecee97354cc2a297ead8993e679f94b"
+}

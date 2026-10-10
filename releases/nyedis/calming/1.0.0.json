@@ -1,0 +1,11 @@
+{
+  "statement": "carnivore-release-v1\ntheme\nnyedis\ncalming\n1.0.0\nNyedisInc/CarnivoreAI-Catalog\nthemes/nyedis/calming\nd11f9791c5b40617c18402e66fa175cf2733d39d\n4fc6b17f6bc4780326942946ab3b99f88b2cc0e7559e86d3a2a569a65abf40c9\n",
+  "sig": {
+    "key_id": "3463B8E83B44738B",
+    "sig": "RUSLc0Q76LhjNCvSe37mLBOqSRbI+RnSBIDHkOgIxrgPhHvOm6MGR9n1FFPctHxf94WJygzM5Fo6SY33VPBIajDg3NaxzYvZigE=",
+    "tc": "timestamp:1791617321\tfile:statement-0007.txt\thashed",
+    "gsig": "h7hNw7gEFY0U6RjDH/frA5/W1DvoPhM+UpT8cFlDrL9jZUMBsupfyHqOQGTUrgycffQhXC3Elr6Dm6XARxrYAQ=="
+  },
+  "commit": "d11f9791c5b40617c18402e66fa175cf2733d39d",
+  "digest": "4fc6b17f6bc4780326942946ab3b99f88b2cc0e7559e86d3a2a569a65abf40c9"
+}

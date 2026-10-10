@@ -1,0 +1,11 @@
+{
+  "statement": "carnivore-release-v1\nskill\nnyedis\nprogress\n1.0.0\nNyedisInc/CarnivoreAI-Catalog\nskills/nyedis/progress\nd11f9791c5b40617c18402e66fa175cf2733d39d\nca7b521076845803ac43b6e1582b043fd7ef0678327cac6fbf9e02a55206c45d\n",
+  "sig": {
+    "key_id": "3463B8E83B44738B",
+    "sig": "RUSLc0Q76LhjNM/QHAf0sz70sE2f4b8gR1bKy8ozZlPtPCtWukLnMZGmqWvuVSd8dUbBSb52cZQCCA1CkQgsriJLWtyT9yRaGA0=",
+    "tc": "timestamp:1791617321\tfile:statement-0004.txt\thashed",
+    "gsig": "JfM6dz8lmuwLTLZLrWvHPDvKvMtXeqmRykPuDhiAO2pzPrdEERDYKPe00Pqw4aWuMi1Qre11YsZPCvwhcZM+Cw=="
+  },
+  "commit": "d11f9791c5b40617c18402e66fa175cf2733d39d",
+  "digest": "ca7b521076845803ac43b6e1582b043fd7ef0678327cac6fbf9e02a55206c45d"
+}

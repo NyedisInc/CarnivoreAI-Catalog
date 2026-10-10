@@ -1,0 +1,11 @@
+{
+  "statement": "carnivore-release-v1\ntheme\nnyedis\nneon_city\n1.0.0\nNyedisInc/CarnivoreAI-Catalog\nthemes/nyedis/neon_city\nd11f9791c5b40617c18402e66fa175cf2733d39d\nd4bf20227175dc10e5e8716e120c92635df22966e690fdd6ed8f158842607416\n",
+  "sig": {
+    "key_id": "3463B8E83B44738B",
+    "sig": "RUSLc0Q76LhjNC2f9hxzkyyciokt0cUNl6c8uoWh9UMPkgRwQGaiBnVgI7ryPcNkpd0I9U79wXX6vaoh24qCbfA75FhGU6ADNQc=",
+    "tc": "timestamp:1791617321\tfile:statement-0017.txt\thashed",
+    "gsig": "ThJ54T3KY1xpRCSaw51nNfQ/HNrqGUHQ4G6WxyiX0vc0NYlFGpBeWE/XsV9QLGUYCPI81hAUZJg3+v+WqfVFDw=="
+  },
+  "commit": "d11f9791c5b40617c18402e66fa175cf2733d39d",
+  "digest": "d4bf20227175dc10e5e8716e120c92635df22966e690fdd6ed8f158842607416"
+}

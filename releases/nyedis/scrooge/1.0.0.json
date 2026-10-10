@@ -1,0 +1,11 @@
+{
+  "statement": "carnivore-release-v1\nskill\nnyedis\nscrooge\n1.0.0\nNyedisInc/CarnivoreAI-Catalog\nskills/nyedis/scrooge\nd11f9791c5b40617c18402e66fa175cf2733d39d\n1fa26a636847fa4d6375100dcbca8d2536682013be127449802b8a82c70ed80d\n",
+  "sig": {
+    "key_id": "3463B8E83B44738B",
+    "sig": "RUSLc0Q76LhjNAYdsrDcrVaNQOUftFL/DPa9Cky8pO53gVjs3g4qfZI2OJD+Oo7U9Kf/D5niniFGdlEjIzRoDXhpPS2ylja0mAA=",
+    "tc": "timestamp:1791617321\tfile:statement-0005.txt\thashed",
+    "gsig": "0XBkNkskdNhhF480KF14suNxaq/vIgOX3f7YYssuyEdPiCDbADfxntoulXfHRdv+abXhzc2YDaOJsENAHngmCw=="
+  },
+  "commit": "d11f9791c5b40617c18402e66fa175cf2733d39d",
+  "digest": "1fa26a636847fa4d6375100dcbca8d2536682013be127449802b8a82c70ed80d"
+}
