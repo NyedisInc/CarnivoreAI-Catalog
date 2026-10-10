@@ -16,6 +16,7 @@ from __future__ import annotations
 
 from dataclasses import dataclass
 from pathlib import Path
+from typing import Tuple
 
 import yaml
 
@@ -38,6 +39,8 @@ class CatalogConfig:
       compared by a human; the app holds its own copy.
     - ``review_model``: the OpenRouter model id the review step calls.
     - ``review_max_chars``: how much skill text is sent per version.
+    - ``featured``: optional item ids (``handle/name``) the app shows first;
+      the index carries them as the top level ``featured`` list.
     """
 
     repo: str
@@ -45,6 +48,7 @@ class CatalogConfig:
     staleness_days: int
     review_model: str
     review_max_chars: int
+    featured: Tuple[str, ...] = ()
 
 
 def load_config(repo_root: Path) -> CatalogConfig:
@@ -93,10 +97,19 @@ def load_config(repo_root: Path) -> CatalogConfig:
     if not isinstance(model, str) or not model.strip():
         raise ValueError(f"{CONFIG_FILENAME}: review_model must be a non empty string")
 
+    featured = raw.get("featured", [])
+    if (
+        not isinstance(featured, list)
+        or not all(isinstance(i, str) and i.strip() for i in featured)
+        or len(set(featured)) != len(featured)
+    ):
+        raise ValueError(f"{CONFIG_FILENAME}: featured must be a list of unique item ids")
+
     return CatalogConfig(
         repo=slug.strip(),
         min_serial=integer("min_serial", 0),
         staleness_days=integer("staleness_days", 1),
         review_model=model.strip(),
         review_max_chars=integer("review_max_chars", 1000),
+        featured=tuple(i.strip() for i in featured),
     )

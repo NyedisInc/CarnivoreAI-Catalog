@@ -30,3 +30,8 @@ review_model: anthropic/claude-sonnet-5.5
 # text itself, when the cap bit, so it never reports that files it was not
 # shown are fine.
 review_max_chars: 120000
+
+# optional: item ids (handle/name) the app lists first, in this order. every id
+# must be a published item or the build fails, naming it. leave it out for none.
+# featured:
+#   - nyedis/work

@@ -1,0 +1,15 @@
+{
+  "digest": "f31819254db0f7cb56f98277cc3042472b1466b8f50717acbdca7c431a79d260",
+  "status": "reviewed",
+  "verdict": "flagged",
+  "summary": "this mod shows a one-line ai summary of the session in the prompt footer. after each turn and on session start, resume, clear and fork, it sends the first user message and the last four messages, truncated, to a haiku model call that spends the user's claude usage. it skips non-interactive runs, drops bash output and system notes, and stores the label in its own plugin state. the plugin.json description discloses this behaviour. no network calls, file writes, credential reads, settings edits or approvals were found. the only advisory finding is the model spend.",
+  "warnings": [
+    {
+      "kind": "other",
+      "detail": "calls $.model.complete with the haiku model after each main turn and on session start, resume, clear and fork. it sends the first message and recent session messages to the model and spends the user's claude usage. this is disclosed in the plugin description and skipped in non-interactive runs.",
+      "file": "hooks/register.ts"
+    }
+  ],
+  "model": "anthropic/claude-sonnet-5.5",
+  "reviewed_at": "2026-10-10T20:14:03Z"
+}

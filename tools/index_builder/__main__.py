@@ -180,6 +180,7 @@ def cmd_assemble(args: argparse.Namespace) -> int:
             repo_slug=slug,
             serial=decision.serial,
             generated_at=args.generated_at,
+            featured=config.featured,
         )
     except ReleaseRefused as exc:
         print(f"::error::{exc}", file=sys.stderr)
@@ -727,6 +728,7 @@ def _blocked_review_stands(
 _STAGED_MANIFESTS = {
     "skill": "SKILL.md",
     "theme": "theme.json",
+    "mod": "hooks/hooks.json",
     "plugin": ".claude-plugin/plugin.json",
 }
 

@@ -38,6 +38,7 @@ from .loadouts import MANIFEST, check_members, parse_loadout
 from .releases import (
     FOLDER_FOR_KIND,
     KIND_LOADOUT,
+    KIND_MOD,
     KIND_PLUGIN,
     KIND_SKILL,
     KIND_THEME,
@@ -327,8 +328,12 @@ def _loadout_item(
     }
 
 
-#: The manifest each of the two data kinds is carded from.
-_MANIFEST_FOR_KIND = {KIND_THEME: "theme.json", KIND_PLUGIN: ".claude-plugin/plugin.json"}
+#: The manifest each manifest-carded kind is carded from.
+_MANIFEST_FOR_KIND = {
+    KIND_THEME: "theme.json",
+    KIND_PLUGIN: ".claude-plugin/plugin.json",
+    KIND_MOD: ".claude-plugin/plugin.json",
+}
 
 
 def _manifest_item(
@@ -357,7 +362,7 @@ def _manifest_item(
         manifest = json.loads(_git(repo_root, "show", f"{latest.commit}:{where}"))
     except json.JSONDecodeError as exc:
         raise ReleaseRefused(f"{where}: is not JSON at {latest.commit}: {exc}") from exc
-    description = str(manifest.get("description") or f"{name} plugin")
+    description = str(manifest.get("description") or f"{name} {kind}")
     title = str(manifest.get("name") or name) if kind == KIND_THEME else name
     return {
         "id": f"{handle}/{name}",
@@ -387,6 +392,7 @@ def assemble(
     repo_slug: str,
     serial: int,
     generated_at: Optional[str] = None,
+    featured: Sequence[str] = (),
 ) -> AssembledIndex:
     """Build the whole index document from proven parts.
 
@@ -399,8 +405,10 @@ def assemble(
     Inputs: repo_root (Path). publishers (dict). releases (sequence of
       VerifiedRelease). repo_slug (str). serial (int). generated_at (str
       or None) - supplied only by tests; the default is now, in UTC.
+      featured (sequence of item ids) - from catalog.yml; each must be an item.
     Output: AssembledIndex.
-    Raises: ReleaseRefused when an item's SKILL.md cannot be read.
+    Raises: ReleaseRefused when an item's SKILL.md cannot be read, or a
+      featured id names no item.
     Example: assemble(root, publishers={}, releases=[], repo_slug="a/b",
       serial=1).item_count -> 0
     """
@@ -454,6 +462,12 @@ def assemble(
         })
         version_count += len(ordered)
 
+    unknown = [i for i in featured if i not in indexed]
+    if unknown:
+        raise ReleaseRefused(
+            f"catalog.yml featured names no published item: {', '.join(unknown)}"
+        )
+
     # a hero image is cosmetic: an item whose media fails a check publishes
     # without it, and the line says which and why.
     attach_media(repo_root, FOLDER_FOR_KIND, items, _media_notice)
@@ -466,6 +480,7 @@ def assemble(
         "publishers": _publishers_block(publishers),
         "revocations": _verified_revocations(repo_root, publishers),
         "items": items,
+        "featured": list(featured),
     }
     untrusted = tuple(
         handle for handle, record in sorted(publishers.items())

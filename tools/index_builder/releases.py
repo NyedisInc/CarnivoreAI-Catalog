@@ -48,6 +48,7 @@ from .digest import DigestEntry, digest_directory
 from .grade import grade_folder
 from .kind_errors import KindRefused
 from .kind_rules import load_folder, refuse_retired_handle, validate_folder
+from .mods import validate_mod
 from .minisign_verify import (
     MinisignFormatError,
     PublicKey,
@@ -75,12 +76,17 @@ THEMES_DIR = "themes"
 #: ``.claude-plugin/plugin.json``, no hooks, servers or scripts.
 PLUGINS_DIR = "plugins"
 
+#: Where mod folders live: a Claude Code mod, plugin.json plus hook modules
+#: written in TypeScript (``mods.py``). The one kind that ships code.
+MODS_DIR = "mods"
+
 #: The kinds this catalog publishes. The app refuses anything else, so
 #: writing one would be publishing something nobody can install.
 KIND_SKILL = "skill"
 KIND_LOADOUT = "loadout"
 KIND_THEME = "theme"
 KIND_PLUGIN = "plugin"
+KIND_MOD = "mod"
 
 #: The folder each kind's items sit under.
 FOLDER_FOR_KIND = {
@@ -88,11 +94,12 @@ FOLDER_FOR_KIND = {
     KIND_LOADOUT: LOADOUTS_DIR,
     KIND_THEME: THEMES_DIR,
     KIND_PLUGIN: PLUGINS_DIR,
+    KIND_MOD: MODS_DIR,
 }
 
 #: The kinds whose folder is held to the shared kind rules (and refused any
 #: script or executable file) at the signed commit.
-RULED_KINDS = (KIND_THEME, KIND_PLUGIN)
+RULED_KINDS = (KIND_THEME, KIND_PLUGIN, KIND_MOD)
 
 #: A version is listed as a script bearer when a member sits under this
 #: folder or carries the owner execute bit. Both are counted because the
@@ -116,7 +123,7 @@ class ReleaseRefused(Exception):
 class VerifiedRelease:
     """One version this job is willing to publish.
 
-    - ``kind``: ``skill``, ``loadout``, ``theme`` or ``plugin``, which
+    - ``kind``: ``skill``, ``loadout``, ``theme``, ``plugin`` or ``mod``, which
       decides the folder.
     - ``handle``, ``name``, ``version``: the identity, all three taken
       from the signed statement rather than from the file's path.
@@ -153,7 +160,7 @@ class VerifiedRelease:
 def kind_of(repo_root: Path, handle: str, name: str) -> str:
     """Say which kind ``<handle>/<name>`` is, by which folder holds it.
 
-    :returns: ``skill``, ``loadout``, ``theme`` or ``plugin``. None of them
+    :returns: ``skill``, ``loadout``, ``theme``, ``plugin`` or ``mod``. None of them
         defaults to ``skill`` so the existing "folder is not there at that
         commit" refusal still speaks.
     :raises ReleaseRefused: when more than one folder exists, because one
@@ -287,10 +294,10 @@ def _key_for(
 
 
 def _apply_kind_rules(folder: Path, kind: str, where: str, handle: str) -> None:
-    """Hold a theme or plugin folder to the shared kind rules.
+    """Hold a theme, plugin or mod folder to its kind rules.
 
     :param folder: the checked out folder, named ``<name>``.
-    :param kind: ``theme`` or ``plugin``.
+    :param kind: ``theme``, ``plugin`` or ``mod``.
     :param where: the release file, for the message.
     :param handle: the release path's publisher handle, which decides the
         first-party theme rules.
@@ -302,6 +309,9 @@ def _apply_kind_rules(folder: Path, kind: str, where: str, handle: str) -> None:
     signed into the index by hand either.
     """
     try:
+        if kind == KIND_MOD:
+            validate_mod(folder.name, load_folder(folder))
+            return
         found, _manifest = validate_folder(folder.name, load_folder(folder), kind, handle=handle)
     except KindRefused as exc:
         raise ReleaseRefused(f"{where}: {kind} rules: {exc.code}: {exc.detail}") from exc
