@@ -1,0 +1,11 @@
+{
+  "statement": "carnivore-release-v1\nmod\nnyedis\nworking-on\n0.1.0\nNyedisInc/CarnivoreAI-Catalog\nmods/nyedis/working-on\nc6e8e2aecda5bacc3971fa73445a7dc39cd0ef8c\nf31819254db0f7cb56f98277cc3042472b1466b8f50717acbdca7c431a79d260\n",
+  "sig": {
+    "key_id": "3463B8E83B44738B",
+    "sig": "RUSLc0Q76LhjNEYYg0u3KCI1dmE4PsSOh218swR3UvVeYKtgzh19spT1j1UWgCbDTHRpL4swkS5vYnmqE6DLAPstundi4NpOYgg=",
+    "tc": "timestamp:1791663291\tfile:statement.txt\thashed",
+    "gsig": "5hdHjaFfxYwvR7w8cQqBCaRxwMSFA8G8VMrL3SPWtJIL30qQ7swyPhhGGfegpZ6Wn5iDoAxWBdJPTNnliAOVDQ=="
+  },
+  "commit": "c6e8e2aecda5bacc3971fa73445a7dc39cd0ef8c",
+  "digest": "f31819254db0f7cb56f98277cc3042472b1466b8f50717acbdca7c431a79d260"
+}
