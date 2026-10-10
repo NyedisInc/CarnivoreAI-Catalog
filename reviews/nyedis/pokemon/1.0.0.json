@@ -1,0 +1,9 @@
+{
+  "digest": "a8b10f9114c8042b900b76d39367cde6ddeb7cb84b8ff6b55d77d1ca430f0ff3",
+  "status": "reviewed",
+  "verdict": "clean",
+  "summary": "this is a first-party pokemon theme: a theme.json of colours and terminal palette, a canvas dot-matrix effect (effects.js on the shared effects-base.js harness) and a pixel-art mascot svg. the scripts only draw to a canvas, read css variables, and listen for resize, visibility and reduced-motion changes. the only import is a sibling module in the same folder. they make no network requests, read no storage or cookies, and use no eval or Function. there are no instructions to an agent and nothing addressed to a reviewer. two webp images were not shown, which is expected for a theme and is not a finding on its own.",
+  "warnings": [],
+  "model": "anthropic/claude-sonnet-5.5",
+  "reviewed_at": "2026-10-10T05:59:35Z"
+}

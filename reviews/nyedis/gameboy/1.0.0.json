@@ -1,0 +1,9 @@
+{
+  "digest": "d273b1a3515a22eeb62281ae5509ea65140970f8187b9d34a0d45aaa1200ef5b",
+  "status": "reviewed",
+  "verdict": "clean",
+  "summary": "this is a first party game boy theme: a theme.json of css variables and terminal colours, a canvas effect (effects.js on top of effects-base.js) that paints a grey plastic grain and a slow sheen, and a pixel mascot svg. the scripts have no network access, no storage or cookie reads, no eval or Function, and the only import is the sibling effects-base.js inside the same folder. there are no instructions to an agent or text addressed to a reviewer. the two webp images were not shown, which is expected for a theme and is not a finding.",
+  "warnings": [],
+  "model": "anthropic/claude-sonnet-5.5",
+  "reviewed_at": "2026-10-10T05:59:12Z"
+}

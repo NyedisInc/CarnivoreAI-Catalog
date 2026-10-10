@@ -1,0 +1,9 @@
+{
+  "digest": "c818fe5854fb547feb96077e42294a12445df4d9a5f05731257187847eb6b0bd",
+  "status": "reviewed",
+  "verdict": "clean",
+  "summary": "this is a first party theme made of theme.json (css color variables and xterm colors) and a pixel-art mascot.svg built from plain rect elements. there are no scripts, no instructions to an agent, no network access, and nothing addressed to a reviewer. the two webp images were not shown, which is expected for a theme and is not a finding by itself.",
+  "warnings": [],
+  "model": "anthropic/claude-sonnet-5.5",
+  "reviewed_at": "2026-10-10T05:59:18Z"
+}

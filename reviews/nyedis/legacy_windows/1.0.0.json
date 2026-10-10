@@ -1,0 +1,9 @@
+{
+  "digest": "d93613de9c8620d8bc865aefafb9ffca6c598f7fd6d9342baf718c48e4695a72",
+  "status": "reviewed",
+  "verdict": "clean",
+  "summary": "this is a first party theme: a theme.json with css variables and terminal colors, a canvas effect script, a shared effects harness and an svg mascot. the scripts only read css custom properties, draw to a canvas and listen for resize, visibility and reduced-motion events. they make no network calls, read no storage or cookies, use no eval, and import only the sibling effects-base.js. there is no text addressed to an agent or reviewer. the two webp images were not shown, which is expected for a theme and is not a finding on its own.",
+  "warnings": [],
+  "model": "anthropic/claude-sonnet-5.5",
+  "reviewed_at": "2026-10-10T05:59:27Z"
+}

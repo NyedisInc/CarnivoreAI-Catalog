@@ -1,0 +1,9 @@
+{
+  "digest": "3b598aa49c50dd25e9770c4271bb125df59fb988e8eaf72e6b430c5b2673a3b2",
+  "status": "reviewed",
+  "verdict": "clean",
+  "summary": "first party theme folder with theme.json, a canvas background effect (effects.js built on effects-base.js), and a pixel-art mascot svg. the scripts only draw a faint gradient on a canvas, honour reduced motion and visibility, and clean up after themselves. there is no network access, storage or cookie reads, eval or Function, or imports outside the folder beyond the sibling effects-base.js. the text carries no instructions to an agent or reviewer. the two webp images were not shown, which is expected for a theme and is not a finding by itself. nothing damaging was found.",
+  "warnings": [],
+  "model": "anthropic/claude-sonnet-5.5",
+  "reviewed_at": "2026-10-10T05:59:09Z"
+}

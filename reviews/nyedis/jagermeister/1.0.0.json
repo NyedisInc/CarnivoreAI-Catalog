@@ -1,0 +1,9 @@
+{
+  "digest": "7930a16d351c3142f7f56f58a6a5b9690b922f9b5df93924e02fce2444cfd43c",
+  "status": "reviewed",
+  "verdict": "clean",
+  "summary": "first party theme with a theme.json manifest of css variables and terminal colours, a canvas swirl effect (effects.js on top of the effects-base.js harness) and a pixel mascot svg. the scripts do no network access, storage or cookie reads, eval or Function, and the only import is the sibling effects-base.js. nothing is addressed to an agent or reviewer. the two webp images were not shown, which is expected for a theme and is not a finding on its own.",
+  "warnings": [],
+  "model": "anthropic/claude-sonnet-5.5",
+  "reviewed_at": "2026-10-10T05:59:20Z"
+}

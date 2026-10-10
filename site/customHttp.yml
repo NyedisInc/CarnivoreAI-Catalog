@@ -1,0 +1,74 @@
+# response headers for the hosted catalog.
+#
+# these are IDENTICAL to the custom headers already configured on the amplify
+# app. this file overrides the app level configuration for a manual deployment,
+# so the two are kept the same on purpose: a deployment that silently changed a
+# cache header would show up as clients holding a stale index for a day.
+#
+# five minutes of caching with must-revalidate is the whole freshness story.
+# the index is small, it changes when somebody publishes, and a client that
+# refuses to revalidate would keep serving a version after it was revoked.
+#
+# THE ADMIN PAGE IS A SEPARATE, STRICTER PATTERN, and the two blocks above
+# it are untouched on purpose: a deployment that silently changed a cache
+# header on the index would show up as clients holding a stale catalog for
+# a day. /admin/* is a signed-in tool rather than a public artefact, so it
+# is never stored by a cache and never framed, and its content security
+# policy names no third party origin in any directive. the page talks only
+# to the origin that served it, which is what connect-src 'self' says.
+#
+# THERE IS NO SEPARATE /admin/index.html PATTERN, AND THE REASON IS A
+# MEASUREMENT. One was written first, listed before /admin/* on the
+# assumption that amplify applies the most specific pattern, so that the
+# html document could take the no-cache a real document usually wants.
+# It does not: the first deploy was probed on a cloudfront MISS and
+# /admin/index.html answered `cache-control: no-store`, the value from
+# the /admin/* block, with the narrower pattern having no effect at all.
+# Config that claims to do something and does not is worse than config
+# that is absent, so it was removed rather than left as decoration.
+# no-store is the STRICTER of the two, so nothing was given up: the
+# document is simply never stored instead of being revalidated.
+# X-Content-Type-Options is repeated
+# inside the /admin/* block rather than left to the ** pattern below: how
+# amplify combines two patterns that both match one path is not something
+# this file should be guessing at, and a missing nosniff on a path that
+# serves javascript is not a guess worth making. The deploy job's own
+# header assertion is what MEASURES which headers actually landed, and it
+# prints the whole set.
+# /v1/media/* IS NAMED BY CONTENT: every file is <sha256>.webp, so its bytes
+# can never change under its url and a year of immutable caching is correct.
+# it is listed after /v1/* and carries its own nosniff for the same reason
+# /admin/* does: how amplify combines two matching patterns is not guessed at.
+customHeaders:
+  - pattern: /admin/*
+    headers:
+      - key: Content-Security-Policy
+        value: "default-src 'none'; script-src 'self'; style-src 'self'; connect-src 'self'; img-src 'self'; base-uri 'none'; form-action 'none'; frame-ancestors 'none'"
+      - key: Cache-Control
+        value: no-store
+      - key: X-Frame-Options
+        value: DENY
+      - key: Referrer-Policy
+        value: no-referrer
+      - key: X-Content-Type-Options
+        value: nosniff
+  - pattern: /v1/*
+    headers:
+      - key: Cache-Control
+        value: public, max-age=300, must-revalidate
+      - key: X-Content-Type-Options
+        value: nosniff
+  - pattern: /v1/media/*
+    headers:
+      - key: Cache-Control
+        value: public, max-age=31536000, immutable
+      - key: Content-Type
+        value: image/webp
+      - key: X-Content-Type-Options
+        value: nosniff
+  - pattern: '**'
+    headers:
+      - key: Strict-Transport-Security
+        value: max-age=31536000; includeSubDomains
+      - key: X-Content-Type-Options
+        value: nosniff

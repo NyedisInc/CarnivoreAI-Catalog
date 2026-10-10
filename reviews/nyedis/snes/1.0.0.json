@@ -1,0 +1,9 @@
+{
+  "digest": "5b125d61ddcc6c685d513cac96cd15fad040996ae0870bbaa9b2ce15275f7e09",
+  "status": "reviewed",
+  "verdict": "clean",
+  "summary": "this is a first party snes theme: a theme.json of css variables and terminal colours, a canvas effect (crt shadow-mask triad with a slow shimmer), a harness module, and a pixel mascot svg. the scripts only read css custom properties and draw to a canvas, with no network access, storage or cookie reads, eval, or imports outside the folder. nothing in the text addresses an agent or reviewer. the two webp images were not shown, which is expected for a theme and is not a finding by itself.",
+  "warnings": [],
+  "model": "anthropic/claude-sonnet-5.5",
+  "reviewed_at": "2026-10-10T05:59:41Z"
+}

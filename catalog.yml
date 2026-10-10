@@ -1,0 +1,32 @@
+# the settings the build job is allowed to read.
+#
+# every value here changes what gets PUBLISHED, so it lives in a reviewed
+# commit under CODEOWNERS rather than in a repository setting one account can
+# change without a pull request. the repository variables hold only the
+# addresses of things (the aws role, the region, the amplify app), never what
+# goes in them.
+
+# the owner/repo every release statement signs. read from here rather than
+# from GITHUB_REPOSITORY because it is part of signed bytes: taken from the
+# environment, a fork's build would mint statements that verify for a
+# repository nobody publishes.
+repo: NyedisInc/CarnivoreAI-Catalog
+
+# the floor for the very first published index. only ever used when no live
+# index exists to count from; it can never lower a live serial.
+min_serial: 35
+
+# how old an index may be before the app shows it as degraded. the app holds
+# its own copy of this number; this one is here so a human can compare them.
+staleness_days: 30
+
+# the openrouter model the publish time security review calls: the latest
+# claude sonnet on openrouter (2 usd per million input tokens, 10 per million
+# output). chosen because the reviewer is the last check before a skill reaches
+# users, and a small model missed and looped on the honest cases.
+review_model: anthropic/claude-sonnet-5.5
+
+# how much skill text one review call is shown. the reviewer is told, in the
+# text itself, when the cap bit, so it never reports that files it was not
+# shown are fine.
+review_max_chars: 120000

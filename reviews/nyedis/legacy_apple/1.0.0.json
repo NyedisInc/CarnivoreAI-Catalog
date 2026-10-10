@@ -1,0 +1,9 @@
+{
+  "digest": "a2530db2ee03a31b93f43f09deb69e9db44fe685edab7cca6356c5ab00a4de9b",
+  "status": "reviewed",
+  "verdict": "clean",
+  "summary": "first party theme for legacy apple: theme.json css variables and terminal colours, a canvas stipple effect with a drifting highlight, and a pixel mascot svg. the scripts only read css variables, draw to a canvas and import the sibling effects-base.js. no network access, storage or cookie reads, eval, or agent-addressed text found. the two webp images were not shown, which is expected for a theme and not a finding by itself.",
+  "warnings": [],
+  "model": "anthropic/claude-sonnet-5.5",
+  "reviewed_at": "2026-10-10T05:59:23Z"
+}

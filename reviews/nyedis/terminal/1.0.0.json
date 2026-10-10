@@ -1,0 +1,9 @@
+{
+  "digest": "ffff1a70267ac82ba5ed9d8d3700e6234d878717d742dee51a69d0c50c7a84b7",
+  "status": "reviewed",
+  "verdict": "clean",
+  "summary": "this is a first party theme made of a theme.json manifest, a canvas effect (effects.js on top of effects-base.js) and a static svg mascot. the theme only sets colours and draws a faint breathing glow on a canvas. the scripts have no network access, no storage or cookie reads, no eval or Function, and the only import is the sibling file effects-base.js. nothing addresses an agent or a reviewer. the two webp images were not shown, which is expected for a theme and not a finding by itself. nothing damaging was found.",
+  "warnings": [],
+  "model": "anthropic/claude-sonnet-5.5",
+  "reviewed_at": "2026-10-10T05:59:43Z"
+}

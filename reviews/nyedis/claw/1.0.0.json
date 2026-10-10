@@ -1,0 +1,9 @@
+{
+  "digest": "be3f61759ed8f0d038597a5f2a052ad247c0581b5de1e2de16773738819dacd4",
+  "status": "reviewed",
+  "verdict": "clean",
+  "summary": "first party theme for a dark purple and coral ui: theme.json holds css variables, terminal colours and image references, effects.js draws a twinkling starfield on a canvas, effects-base.js is the shared harness, and mascot.svg is a pixel-art shape. no instructions to an agent, no network access, no storage or cookie reads, no eval or Function. the only import is the sibling effects-base.js, which is in the folder. the two webp images were not shown, which is expected for a theme.",
+  "warnings": [],
+  "model": "anthropic/claude-sonnet-5.5",
+  "reviewed_at": "2026-10-10T05:59:04Z"
+}

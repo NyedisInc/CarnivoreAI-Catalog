@@ -1,0 +1,9 @@
+{
+  "digest": "4fc6b17f6bc4780326942946ab3b99f88b2cc0e7559e86d3a2a569a65abf40c9",
+  "status": "reviewed",
+  "verdict": "clean",
+  "summary": "this is a first party theme with a color manifest, a canvas mist effect, a harness and a pixel mascot svg. the scripts do no network access, storage or cookie reads, eval or Function, and the only import is a sibling file in the same folder (effects-base.js). there are no instructions to an agent and nothing addressed to a reviewer. the two webp images were not shown, which is expected for a theme and is not a finding. nothing damaging was found.",
+  "warnings": [],
+  "model": "anthropic/claude-sonnet-5.5",
+  "reviewed_at": "2026-10-10T05:58:54Z"
+}

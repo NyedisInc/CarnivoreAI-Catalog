@@ -1,0 +1,9 @@
+{
+  "digest": "d4bf20227175dc10e5e8716e120c92635df22966e690fdd6ed8f158842607416",
+  "status": "reviewed",
+  "verdict": "clean",
+  "summary": "this is a first party theme folder with a theme.json of css variables and terminal colors, a pixel-art mascot.svg made of plain rect elements, and two webp images that were not shown (expected for raster images). there are no scripts, no instructions addressed to an agent, no network access, and nothing damaging found.",
+  "warnings": [],
+  "model": "anthropic/claude-sonnet-5.5",
+  "reviewed_at": "2026-10-10T05:59:30Z"
+}

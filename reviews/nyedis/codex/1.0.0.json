@@ -1,0 +1,9 @@
+{
+  "digest": "5c53cb619a93dc4f7c7217ab0a66c595df3a93b29655fb0bcf9cadc5b5bc8578",
+  "status": "reviewed",
+  "verdict": "clean",
+  "summary": "this is a first party theme with a theme.json of css variables, a canvas background effect (effects.js built on effects-base.js) and a pixel mascot svg. the scripts only read css variables and draw on a canvas, with no network access, storage or cookie reads, eval, or imports outside the folder besides the sibling effects-base.js. the two webp images were not shown, which is expected for a theme. nothing damaging found.",
+  "warnings": [],
+  "model": "anthropic/claude-sonnet-5.5",
+  "reviewed_at": "2026-10-10T05:59:07Z"
+}

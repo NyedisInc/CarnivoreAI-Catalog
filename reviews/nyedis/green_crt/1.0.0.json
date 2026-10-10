@@ -1,0 +1,9 @@
+{
+  "digest": "084f36c0c5048859f199c86dca885ab00d6fa7ae66c31a4b979bcffe36fb4a7f",
+  "status": "reviewed",
+  "verdict": "clean",
+  "summary": "this is a first party green crt theme made of theme.json, a canvas effect (effects.js with effects-base.js), a pixel mascot svg and two raster images. the scripts only draw scanlines on a canvas and read css variables and the reduced-motion media query. i found no network access, storage or cookie reads, eval or function, imports outside the folder, or text addressed to an agent or reviewer. the webp images were not shown, which is expected for a theme and is not a finding.",
+  "warnings": [],
+  "model": "anthropic/claude-sonnet-5.5",
+  "reviewed_at": "2026-10-10T05:59:15Z"
+}
