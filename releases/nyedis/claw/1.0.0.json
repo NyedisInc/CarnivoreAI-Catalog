@@ -1,0 +1,11 @@
+{
+  "statement": "carnivore-release-v1\ntheme\nnyedis\nclaw\n1.0.0\nNyedisInc/CarnivoreAI-Catalog\nthemes/nyedis/claw\nd11f9791c5b40617c18402e66fa175cf2733d39d\nbe3f61759ed8f0d038597a5f2a052ad247c0581b5de1e2de16773738819dacd4\n",
+  "sig": {
+    "key_id": "3463B8E83B44738B",
+    "sig": "RUSLc0Q76LhjNGpNeZicdOw3lp68Hl27SFHop/UAkvxxCTxYlkx3PJfiyLfBz/CXLp2G22a/Uoyg4AuXrzZOvTTnFjoCCKqB9gY=",
+    "tc": "timestamp:1791617321\tfile:statement-0008.txt\thashed",
+    "gsig": "BmVNDCYrQifj892jXyQRdLDo/snEwyTOB0zyNppn8O0Q5C/8KkCkF53Wr7yang4yhmv0fx4IN5DSuZyT4F/uDQ=="
+  },
+  "commit": "d11f9791c5b40617c18402e66fa175cf2733d39d",
+  "digest": "be3f61759ed8f0d038597a5f2a052ad247c0581b5de1e2de16773738819dacd4"
+}

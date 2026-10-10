@@ -1,0 +1,11 @@
+{
+  "statement": "carnivore-release-v1\ntheme\nnyedis\nlegacy_apple\n1.0.0\nNyedisInc/CarnivoreAI-Catalog\nthemes/nyedis/legacy_apple\nd11f9791c5b40617c18402e66fa175cf2733d39d\na2530db2ee03a31b93f43f09deb69e9db44fe685edab7cca6356c5ab00a4de9b\n",
+  "sig": {
+    "key_id": "3463B8E83B44738B",
+    "sig": "RUSLc0Q76LhjNJu/F4HSi3ydGJv4HPiRWo0dInMShsAKkqphZVa9G1ra4h0oB2fepv5xlxJs4jtMFPc1VqY0b4JW0vki7/j9WgI=",
+    "tc": "timestamp:1791617321\tfile:statement-0015.txt\thashed",
+    "gsig": "SYz4zGGe/ZGYAC4QcGHc+6UT5HyBqJfkZx+qQFH3KTC3IYQ9NkZ4dnmyAgZDG6JB0uKef2Kl9Cbh3GkBbTS6DQ=="
+  },
+  "commit": "d11f9791c5b40617c18402e66fa175cf2733d39d",
+  "digest": "a2530db2ee03a31b93f43f09deb69e9db44fe685edab7cca6356c5ab00a4de9b"
+}

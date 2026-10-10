@@ -1,0 +1,11 @@
+{
+  "statement": "carnivore-release-v1\nskill\nnyedis\n11-stars\n1.0.0\nNyedisInc/CarnivoreAI-Catalog\nskills/nyedis/11-stars\nd11f9791c5b40617c18402e66fa175cf2733d39d\nc2c7c419dd181326963cfe9e714e9023cdaf2a97fbf882aca49959819251aae1\n",
+  "sig": {
+    "key_id": "3463B8E83B44738B",
+    "sig": "RUSLc0Q76LhjNNT/a8JzfYeFqURMKGSIZrwOAdZ//heT5eWzAH1llEtIfZDqaP0vYW08LWTTPqg/TuUEk5iqfHqJ24yf1lfH/gA=",
+    "tc": "timestamp:1791617321\tfile:statement-0000.txt\thashed",
+    "gsig": "lYrPNfHVpkoIupsMStNwhBwABJ2aoqryop2bRkreVb+JhDWYLKh7fQJ9vanwJpjpPTnlwcmTpb+AJiGr/HxwAQ=="
+  },
+  "commit": "d11f9791c5b40617c18402e66fa175cf2733d39d",
+  "digest": "c2c7c419dd181326963cfe9e714e9023cdaf2a97fbf882aca49959819251aae1"
+}

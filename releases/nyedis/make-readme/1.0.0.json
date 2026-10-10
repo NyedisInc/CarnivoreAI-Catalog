@@ -1,0 +1,11 @@
+{
+  "statement": "carnivore-release-v1\nskill\nnyedis\nmake-readme\n1.0.0\nNyedisInc/CarnivoreAI-Catalog\nskills/nyedis/make-readme\nd11f9791c5b40617c18402e66fa175cf2733d39d\ndcfd2e1d6cc5d680d655139c315a0969a250aea001be084c5fb2e934566d5121\n",
+  "sig": {
+    "key_id": "3463B8E83B44738B",
+    "sig": "RUSLc0Q76LhjNCHIyDEtwe6pqriln+HnW9helaazREz0scbTqe44evUPl4ZNllnOhFph9aZt+Yr827HStmhx//2AUdJl0/Tn+A8=",
+    "tc": "timestamp:1791617321\tfile:statement-0003.txt\thashed",
+    "gsig": "i+JonsG69+uZqGvuc+X75RX5XJlWP/QwzKELht8Z3+VfOyVzxLnkcvSlVu/cP8z1eiqWRRTXGTvIP8Lz8vUrCQ=="
+  },
+  "commit": "d11f9791c5b40617c18402e66fa175cf2733d39d",
+  "digest": "dcfd2e1d6cc5d680d655139c315a0969a250aea001be084c5fb2e934566d5121"
+}

@@ -1,0 +1,11 @@
+{
+  "statement": "carnivore-release-v1\ntheme\nnyedis\npokemon\n1.0.0\nNyedisInc/CarnivoreAI-Catalog\nthemes/nyedis/pokemon\nd11f9791c5b40617c18402e66fa175cf2733d39d\na8b10f9114c8042b900b76d39367cde6ddeb7cb84b8ff6b55d77d1ca430f0ff3\n",
+  "sig": {
+    "key_id": "3463B8E83B44738B",
+    "sig": "RUSLc0Q76LhjNIWVWrvHOd1UOGk+hGBZGMcp8qFn63j5s/aXKXfYXe66X38DcCYW9psdzwXcmb1qOTau8PvnotzHf3iO1nXjYw8=",
+    "tc": "timestamp:1791617321\tfile:statement-0019.txt\thashed",
+    "gsig": "NAMOg1XDjuxi2EMl7sD5sQ6gToIx0uSEP94zN0cbA0ojsnQkIluJbbd5RJHxtF+zqMmCXKw2Vbq9gxvPH3LdDw=="
+  },
+  "commit": "d11f9791c5b40617c18402e66fa175cf2733d39d",
+  "digest": "a8b10f9114c8042b900b76d39367cde6ddeb7cb84b8ff6b55d77d1ca430f0ff3"
+}

@@ -1,0 +1,11 @@
+{
+  "statement": "carnivore-release-v1\ntheme\nnyedis\nice_forge\n1.0.0\nNyedisInc/CarnivoreAI-Catalog\nthemes/nyedis/ice_forge\nd11f9791c5b40617c18402e66fa175cf2733d39d\nc818fe5854fb547feb96077e42294a12445df4d9a5f05731257187847eb6b0bd\n",
+  "sig": {
+    "key_id": "3463B8E83B44738B",
+    "sig": "RUSLc0Q76LhjNIRhuYX0YHTZKWfxicMiy64iHQAnC8BqLi7ItVd0dNYXQashiY0H93yDn0gR87lMOC11D7SqtWUq7C4976+7jQQ=",
+    "tc": "timestamp:1791617321\tfile:statement-0013.txt\thashed",
+    "gsig": "OvW3cuOQ94B3Fj6sIhoLxz60nYaBEvBOMTUoQX8hxsEyTCCjocnKFTLG4YUSKngCNKQTaqMEYBvkbw4jIsMbDg=="
+  },
+  "commit": "d11f9791c5b40617c18402e66fa175cf2733d39d",
+  "digest": "c818fe5854fb547feb96077e42294a12445df4d9a5f05731257187847eb6b0bd"
+}

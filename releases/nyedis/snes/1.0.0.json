@@ -1,0 +1,11 @@
+{
+  "statement": "carnivore-release-v1\ntheme\nnyedis\nsnes\n1.0.0\nNyedisInc/CarnivoreAI-Catalog\nthemes/nyedis/snes\nd11f9791c5b40617c18402e66fa175cf2733d39d\n5b125d61ddcc6c685d513cac96cd15fad040996ae0870bbaa9b2ce15275f7e09\n",
+  "sig": {
+    "key_id": "3463B8E83B44738B",
+    "sig": "RUSLc0Q76LhjNO3zEMwAFTrvVRjAsDmQVQtKu66hZ53BozX2AVuYMY0+uamg7dN+rix/8BEs75GYGNDE7XZKTr9XSvXF9N5YUAc=",
+    "tc": "timestamp:1791617321\tfile:statement-0021.txt\thashed",
+    "gsig": "jytRvg1ve32W4T9Vj1w//T998XWCIwqMJOQYZp/GoWhfc0Igqtk2sCHFqmbsXiU1MQr1OIZYCAPz2CfD+RieDw=="
+  },
+  "commit": "d11f9791c5b40617c18402e66fa175cf2733d39d",
+  "digest": "5b125d61ddcc6c685d513cac96cd15fad040996ae0870bbaa9b2ce15275f7e09"
+}

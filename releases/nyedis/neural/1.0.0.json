@@ -1,0 +1,11 @@
+{
+  "statement": "carnivore-release-v1\ntheme\nnyedis\nneural\n1.0.0\nNyedisInc/CarnivoreAI-Catalog\nthemes/nyedis/neural\nd11f9791c5b40617c18402e66fa175cf2733d39d\naa8fc8a7a4f16628edff99ae392d7bb4a66b5351d828b5c912d5850b083d33f4\n",
+  "sig": {
+    "key_id": "3463B8E83B44738B",
+    "sig": "RUSLc0Q76LhjNE3C0DJG1rYOG5Vqqk/ut6gStoFwnjcMKOi+WC6yJSP+eSrD33NTWPUF6KwuO+ZXMK1Dxlm7atDBIKCj8XFy+Qc=",
+    "tc": "timestamp:1791617321\tfile:statement-0018.txt\thashed",
+    "gsig": "QVsQwe3ShaqUYGecdPuM/RogKmkEcbr86DgxYwqCg0QlejUmKZgX3UnKIJom9UOGp7vNyUWNzJldgJ73SVzQBg=="
+  },
+  "commit": "d11f9791c5b40617c18402e66fa175cf2733d39d",
+  "digest": "aa8fc8a7a4f16628edff99ae392d7bb4a66b5351d828b5c912d5850b083d33f4"
+}

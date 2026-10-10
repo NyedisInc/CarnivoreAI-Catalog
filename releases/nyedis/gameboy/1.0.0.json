@@ -1,0 +1,11 @@
+{
+  "statement": "carnivore-release-v1\ntheme\nnyedis\ngameboy\n1.0.0\nNyedisInc/CarnivoreAI-Catalog\nthemes/nyedis/gameboy\nd11f9791c5b40617c18402e66fa175cf2733d39d\nd273b1a3515a22eeb62281ae5509ea65140970f8187b9d34a0d45aaa1200ef5b\n",
+  "sig": {
+    "key_id": "3463B8E83B44738B",
+    "sig": "RUSLc0Q76LhjNLOc7ZCxZ231aMYWxUpD4ntfZq/+5FBHlQORe+COLginlETJLq2p51Mr2vvsuxu/7OMrcuRUP91s4uoO5knhtwE=",
+    "tc": "timestamp:1791617321\tfile:statement-0011.txt\thashed",
+    "gsig": "y5+xpOX3WAMHOiqRmYJTbYan7hkNAEqF0HKYgFaEDo+RV1ha0bOKNTCoI9ShipoKPF5dfhOCVi5Mt7IjPNxtAQ=="
+  },
+  "commit": "d11f9791c5b40617c18402e66fa175cf2733d39d",
+  "digest": "d273b1a3515a22eeb62281ae5509ea65140970f8187b9d34a0d45aaa1200ef5b"
+}
