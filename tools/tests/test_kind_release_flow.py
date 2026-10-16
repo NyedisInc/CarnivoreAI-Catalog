@@ -104,7 +104,7 @@ def test_a_skill_a_theme_and_a_plugin_assemble_into_one_index(
 @requires_minisign
 @pytest.mark.parametrize("kind,vector_id", [
     ("plugin", "plugin-hooks-dir"), ("plugin", "plugin-hooks-key"),
-    ("plugin", "plugin-mcp-json"), ("theme", "theme-effects-key"),
+    ("plugin", "plugin-mcp-json-malformed"), ("theme", "theme-effects-key"),
     ("theme", "theme-url-value"), ("theme", "theme-css-file"),
 ])
 def test_a_hostile_folder_signed_by_a_valid_key_is_refused(
