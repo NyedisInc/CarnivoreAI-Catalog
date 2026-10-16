@@ -336,6 +336,43 @@ _MANIFEST_FOR_KIND = {
 }
 
 
+def _http_url(value: object) -> Optional[str]:
+    """Return ``value`` trimmed when it is an http(s) URL string, else None.
+
+    Drops javascript:, data: and every other scheme so a card never links one.
+    """
+    if not isinstance(value, str):
+        return None
+    text = value.strip()
+    return text if text.lower().startswith(("http://", "https://")) else None
+
+
+def _attribution_fm(manifest: Dict[str, object]) -> Dict[str, object]:
+    """Normalize a plugin manifest's credit fields into the item ``fm`` keys.
+
+    ``author`` may be a string or {name, email, url}; ``repository`` a string
+    or {type, url}. Emits author, author_url, homepage and repository (each
+    None when absent or not http(s)); the author's email is never emitted.
+    """
+    author = manifest.get("author")
+    author_url: Optional[str] = None
+    if isinstance(author, dict):
+        name = author.get("name")
+        author_url = _http_url(author.get("url"))
+    else:
+        name = author
+    name = name.strip() if isinstance(name, str) and name.strip() else None
+    repo = manifest.get("repository")
+    if isinstance(repo, dict):
+        repo = repo.get("url")
+    return {
+        "author": name,
+        "author_url": author_url,
+        "homepage": _http_url(manifest.get("homepage")),
+        "repository": _http_url(repo),
+    }
+
+
 def _manifest_item(
     repo_root: Path,
     kind: str,
@@ -364,6 +401,9 @@ def _manifest_item(
         raise ReleaseRefused(f"{where}: is not JSON at {latest.commit}: {exc}") from exc
     description = str(manifest.get("description") or f"{name} {kind}")
     title = str(manifest.get("name") or name) if kind == KIND_THEME else name
+    fm: Dict[str, object] = {"description": description}
+    if kind == KIND_PLUGIN:
+        fm.update(_attribution_fm(manifest))
     return {
         "id": f"{handle}/{name}",
         "kind": kind,
@@ -371,7 +411,7 @@ def _manifest_item(
         "publisher": handle,
         "latest": latest.version,
         "card": {"title": title, "brief": brief_of(description)},
-        "fm": {"description": description},
+        "fm": fm,
         "versions": [_version_entry(r, repo_slug, None) for r in ordered],
     }
 
