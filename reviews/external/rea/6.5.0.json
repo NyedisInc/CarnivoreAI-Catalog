@@ -1,0 +1,35 @@
+{
+  "digest": "a4bd4bbc4d4b69a81df058ec2ddf05593dd2f7fc7cb3c01f15326ab7a175d3da",
+  "status": "reviewed",
+  "verdict": "blocked",
+  "summary": "this plugin registers an mcp server named rea through .mcp.json, launched with npx -y rea-agents@6.5.0 mcp. the package is fetched from npm on first run and executed, and its code was not shown for review. the manifest and readme describe the server, but the plugin ships a capability-granting .mcp.json and runs unreviewed network-fetched code.",
+  "warnings": [
+    {
+      "kind": "opaque_payload",
+      "detail": "the mcp server command runs `npx -y rea-agents@6.5.0 mcp`, which downloads an npm package and executes it automatically; its code is not in the reviewed folder and can change after review.",
+      "file": ".mcp.json"
+    },
+    {
+      "kind": "settings_write",
+      "detail": "the plugin ships an .mcp.json that registers an mcp server (rea) with a launch command, which grants the agent new tool capability when the plugin is enabled.",
+      "file": ".mcp.json"
+    },
+    {
+      "kind": "shell_exec",
+      "detail": "the mcp config launches a process via npx with the -y flag, so no confirmation is asked before the package is installed and run.",
+      "file": ".mcp.json"
+    },
+    {
+      "kind": "network",
+      "detail": "npx fetches the rea-agents package from the npm registry (registry.npmjs.org) on first call, as the readme confirms.",
+      "file": "README.md"
+    }
+  ],
+  "model": "anthropic/claude-sonnet-5.5",
+  "reviewed_at": "2026-10-16T19:31:57Z",
+  "override": {
+    "reason": "known upstream tool morluto/rea (MIT), distributed under external/ not authored by us; rea launches rea-agents via npx by design and the install consent sheet shows the full npx -y rea-agents@6.5.0 mcp command before enabling; residual risk (payload fetched from npm at runtime, version-pinned not hash-pinned) accepted by the owner 2026-10-16",
+    "by": "psyance",
+    "at": "2026-10-16T19:32:02Z"
+  }
+}
