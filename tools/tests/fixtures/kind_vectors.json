@@ -576,6 +576,37 @@
    },
    "files": {
     ".claude-plugin/plugin.json": {
+     "text": "{\n \"name\": \"tool-pack\",\n \"version\": \"1.0.0\",\n \"description\": \"A pack.\",\n \"author\": {\n  \"name\": \"tester\"\n },\n \"keywords\": [\n  \"x\"\n ],\n \"mcpServers\": {\n  \"a\": {\n   \"command\": \"echo ok\",\n   \"type\": \"http\",\n   \"url\": \"https://evil.example/mcp\"\n  }\n }\n}"
+    },
+    "LICENSE": {
+     "text": "MIT\n"
+    },
+    "README.md": {
+     "text": "# pack\n"
+    },
+    "agents/helper.md": {
+     "text": "---\nname: helper\ndescription: helps\n---\nYou help.\n"
+    },
+    "commands/hello.md": {
+     "text": "---\ndescription: say hi\n---\nSay hi to $ARGUMENTS.\n"
+    },
+    "skills/one/SKILL.md": {
+     "text": "---\nname: one\ndescription: one\n---\nBody.\n"
+    },
+    "skills/one/notes.txt": {
+     "text": "notes\n"
+    }
+   },
+   "id": "plugin-mcp-hybrid-remote",
+   "name": "tool-pack"
+  },
+  {
+   "expect": {
+    "kind": "plugin",
+    "status": 200
+   },
+   "files": {
+    ".claude-plugin/plugin.json": {
      "text": "{\n \"name\": \"tool-pack\",\n \"version\": \"1.0.0\",\n \"description\": \"A pack.\",\n \"author\": {\n  \"name\": \"tester\"\n },\n \"keywords\": [\n  \"x\"\n ],\n \"mcpServers\": {\n  \"a\": {\n   \"command\": \"x\"\n  }\n }\n}"
     },
     "LICENSE": {
@@ -667,15 +698,15 @@
   },
   {
    "expect": {
-    "code": "plugin_not_safe",
-    "status": 409
+    "kind": "plugin",
+    "status": 200
    },
    "files": {
     ".claude-plugin/plugin.json": {
      "text": "{\n \"name\": \"tool-pack\",\n \"version\": \"1.0.0\",\n \"description\": \"A pack.\",\n \"author\": {\n  \"name\": \"tester\"\n },\n \"keywords\": [\n  \"x\"\n ]\n}"
     },
     ".mcp.json": {
-     "text": "{}"
+     "text": "{\"mcpServers\": {\"a\": {\"command\": \"npx\", \"args\": [\"-y\", \"x@1.0.0\", \"mcp\"]}}}"
     },
     "LICENSE": {
      "text": "MIT\n"
@@ -697,6 +728,40 @@
     }
    },
    "id": "plugin-mcp-json",
+   "name": "tool-pack"
+  },
+  {
+   "expect": {
+    "code": "plugin_not_safe",
+    "status": 409
+   },
+   "files": {
+    ".claude-plugin/plugin.json": {
+     "text": "{\n \"name\": \"tool-pack\",\n \"version\": \"1.0.0\",\n \"description\": \"A pack.\",\n \"author\": {\n  \"name\": \"tester\"\n },\n \"keywords\": [\n  \"x\"\n ]\n}"
+    },
+    ".mcp.json": {
+     "text": "{\"mcpServers\": {\"a\": {\"command\": [\"npx\"]}}}"
+    },
+    "LICENSE": {
+     "text": "MIT\n"
+    },
+    "README.md": {
+     "text": "# pack\n"
+    },
+    "agents/helper.md": {
+     "text": "---\nname: helper\ndescription: helps\n---\nYou help.\n"
+    },
+    "commands/hello.md": {
+     "text": "---\ndescription: say hi\n---\nSay hi to $ARGUMENTS.\n"
+    },
+    "skills/one/SKILL.md": {
+     "text": "---\nname: one\ndescription: one\n---\nBody.\n"
+    },
+    "skills/one/notes.txt": {
+     "text": "notes\n"
+    }
+   },
+   "id": "plugin-mcp-json-malformed",
    "name": "tool-pack"
   },
   {

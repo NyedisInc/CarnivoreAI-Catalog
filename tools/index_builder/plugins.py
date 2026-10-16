@@ -6,12 +6,15 @@ paths and manifest keys, never a denylist, so a new way of running code
 that Claude Code adds later is refused by default:
 
 * ``.claude-plugin/plugin.json`` (required) with the keys in
-  ``MANIFEST_KEYS`` only. ``hooks``, ``mcpServers``, ``lspServers``,
-  ``monitors`` and every path override key are refused by that allowlist.
+  ``MANIFEST_KEYS`` only. ``hooks``, ``lspServers``, ``monitors`` and every
+  path override key are refused by that allowlist. ``mcpServers`` and a root
+  ``.mcp.json`` ARE allowed (2026-10-15, Adam (Adoom666), ``docs/DECISIONS.md``)
+  provided each server is structurally sound (``_mcp_problems``); the app's
+  install sheet shows the full command and the install is consent-gated.
 * ``commands/**.md``, ``agents/**.md``, ``skills/<n>/SKILL.md`` plus text
   references beside it, and a root README and LICENSE.
 * Any ``hooks``, ``bin``, ``monitors`` or ``scripts`` segment at any depth,
-  ``.mcp.json``, ``.lsp.json``, settings files, every other path or
+  ``.lsp.json``, settings files, every other path or
   extension, non UTF-8 bytes, a shebang, front matter keys that grant
   tools or permissions, and the inline shell injection marker are refused.
 
@@ -36,9 +39,13 @@ from .kind_errors import KindRefused
 MANIFEST = ".claude-plugin/plugin.json"
 MAX_MANIFEST_BYTES = 64 * 1024
 MAX_LISTED = 10
+MAX_MCP_SERVERS = 16
+MAX_MCP_BYTES = 16 * 1024
+#: The only keys a server entry may carry (mirrors plugin_safe_subset.MCP_ENTRY_KEYS); anything else can pick a transport the consent sheet hides.
+MCP_ENTRY_KEYS = frozenset({"command", "args", "env"})
 
 MANIFEST_KEYS = frozenset(
-    {"name", "version", "description", "author", "homepage", "repository", "license", "keywords"}
+    {"name", "version", "description", "author", "homepage", "repository", "license", "keywords", "mcpServers"}
 )
 TEXT_REFERENCE_EXTENSIONS = (".md", ".txt", ".json", ".yaml", ".yml")
 _ROOT_DOC_RE = re.compile(r"^(?:readme|license)(?:\.md|\.txt)?$", re.IGNORECASE)
@@ -63,7 +70,7 @@ def _path_allowed(path: str) -> bool:
     Example: _path_allowed("commands/a/b.md") -> True
     """
     parts = path.split("/")
-    if path == MANIFEST:
+    if path == MANIFEST or path == ".mcp.json":
         return True
     if any(p.lower() in FORBIDDEN_SEGMENTS for p in parts) or FORBIDDEN_NAMES.match(parts[-1]):
         return False
@@ -75,6 +82,38 @@ def _path_allowed(path: str) -> bool:
     if parts[0] == "skills" and len(parts) >= 3:
         return lower.endswith(TEXT_REFERENCE_EXTENSIONS)
     return False
+
+
+def _mcp_problems(label: str, servers: object) -> List[str]:
+    """Structural problems in one MCP server map (mirror of the app's ``mcp_problems``).
+
+    Not a judgement of the command: it guarantees every server parses and
+    can be shown in full on the consent sheet. At most 16 servers and
+    16 KiB; each server an object with a non-empty string ``command``,
+    ``args`` a list of strings, ``env`` a string to string map.
+
+    Inputs: label (str) where the map came from; servers (object) the value.
+    Output: list of "label (reason)" strings.
+    Example: _mcp_problems("m", {"a": {"command": "npx"}}) -> []
+    """
+    if not isinstance(servers, dict):
+        return [f"{label} (must be an object of servers)"]
+    problems: List[str] = []
+    if len(servers) > MAX_MCP_SERVERS or len(json.dumps(servers)) > MAX_MCP_BYTES:
+        problems.append(f"{label} (more than {MAX_MCP_SERVERS} servers or 16 KiB)")
+    for name, entry in servers.items():
+        if not isinstance(entry, dict) or not isinstance(entry.get("command"), str) or not entry["command"].strip():
+            problems.append(f"{label} (server {str(name)[:40]} needs a command string)")
+            continue
+        extra = sorted(str(k)[:20] for k in entry if k not in MCP_ENTRY_KEYS)
+        if extra:
+            problems.append(f"{label} (server {str(name)[:40]} has unsupported keys {extra})")
+        args, env = entry.get("args", []), entry.get("env", {})
+        if not isinstance(args, list) or not all(isinstance(a, str) for a in args):
+            problems.append(f"{label} (server {str(name)[:40]} args must be a list of strings)")
+        if not isinstance(env, dict) or not all(isinstance(k, str) and isinstance(v, str) for k, v in env.items()):
+            problems.append(f"{label} (server {str(name)[:40]} env must map strings to strings)")
+    return problems
 
 
 def _manifest_problems(name: str, raw: bytes) -> List[str]:
@@ -104,7 +143,25 @@ def _manifest_problems(name: str, raw: bytes) -> List[str]:
             isinstance(value, str) and re.match(r"^https?://", value)
         ):
             problems.append(f"{MANIFEST} ({key} must be an http or https url)")
+    if "mcpServers" in manifest:
+        problems.extend(_mcp_problems(f"{MANIFEST} mcpServers", manifest["mcpServers"]))
     return problems
+
+
+def _mcp_file_problems(data: bytes) -> List[str]:
+    """Problems in a root ``.mcp.json`` (its ``mcpServers`` object, or the object itself).
+
+    Inputs: data (bytes). Output: list of problem strings.
+    Example: _mcp_file_problems(b'{"a": {"command": "npx"}}') -> []
+    """
+    if len(data) > MAX_MCP_BYTES:
+        return [".mcp.json (larger than 16 KiB)"]
+    try:
+        value = json.loads(data.decode("utf-8"))
+    except (UnicodeDecodeError, ValueError):
+        return [".mcp.json (not utf-8 json)"]
+    servers = value["mcpServers"] if isinstance(value, dict) and "mcpServers" in value else value
+    return _mcp_problems(".mcp.json", servers)
 
 
 def validate_plugin(name: str, members: Dict[str, bytes]) -> str:
@@ -124,6 +181,8 @@ def validate_plugin(name: str, members: Dict[str, bytes]) -> str:
     for path, data in members.items():
         if not _path_allowed(path):
             problems.append(f"{path} (path not allowed)")
+        elif path == ".mcp.json":
+            problems.extend(_mcp_file_problems(data))
         elif path != MANIFEST:
             reason = content_problem(path, data)
             if reason:
