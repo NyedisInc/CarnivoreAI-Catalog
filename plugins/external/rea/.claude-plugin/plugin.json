@@ -1,0 +1,10 @@
+{
+  "name": "rea",
+  "version": "6.5.0",
+  "description": "reverse engineer anything from your terminal or agent with one cli and mcp server",
+  "author": { "name": "morluto", "url": "https://github.com/morluto" },
+  "homepage": "https://github.com/morluto/rea#readme",
+  "repository": "https://github.com/morluto/rea",
+  "license": "MIT",
+  "keywords": ["mcp", "reverse-engineering", "agents", "rea"]
+}
