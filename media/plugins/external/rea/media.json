@@ -2,17 +2,17 @@
   "schema": "carnivore.catalog.media/1",
   "item": "external/rea",
   "source": "generated",
-  "sha256": "ae108c03b2f20ae6ddfcdb52d4520e3e036bc58fd67136e835a9e36e53564a34",
+  "sha256": "3752ba2c1b91942b753e7ec6db51b8ab578417a99e2ac368411556ce9d11bc3c",
   "w": 1536,
   "h": 1024,
-  "bytes": 106304,
-  "created_at": "2026-10-16T19:51:23+00:00",
+  "bytes": 71078,
+  "created_at": "2026-10-16T21:15:09+00:00",
   "generator": {
     "model": "openai/gpt-image-2",
     "prompt_version": 1,
     "concept": {
-      "object": "a spiraling galaxy of vibrant colors",
-      "mood": "mystical and expansive"
+      "object": "a magnifying glass over intricate gears",
+      "mood": "curious, intricate, technical, focused"
     }
   }
 }
