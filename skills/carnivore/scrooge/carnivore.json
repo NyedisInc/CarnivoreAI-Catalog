@@ -1,0 +1,19 @@
+{
+  "kind": "skill",
+  "id": "carnivore/scrooge",
+  "name": "scrooge",
+  "description": "Use when you want to audit your Claude Code setup for wasted time, tokens and money. Measures real spend from your own transcripts, finds the biggest leaks (oversized context, wrong model tier, unbounded workers, bloated rule files), trims CLAUDE.md / AGENTS.md after a backup and your yes, prints paste-ready snippets for everything else, and estimates Time Saved % and Tokens Saved %.",
+  "version": "1.0.1",
+  "author": "Carnivore",
+  "scope": [
+    "global",
+    "project"
+  ],
+  "harnesses": [
+    "claude"
+  ],
+  "api_version": 1,
+  "min_app_version": "1.0.0",
+  "license": "MIT",
+  "tier": "catalog"
+}

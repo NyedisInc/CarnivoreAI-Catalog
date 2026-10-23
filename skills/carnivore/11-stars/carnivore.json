@@ -1,0 +1,19 @@
+{
+  "kind": "skill",
+  "id": "carnivore/11-stars",
+  "name": "11-stars",
+  "description": "|-",
+  "version": "1.0.1",
+  "author": "Carnivore",
+  "scope": [
+    "global",
+    "project"
+  ],
+  "harnesses": [
+    "claude"
+  ],
+  "api_version": 1,
+  "min_app_version": "1.0.0",
+  "license": "MIT",
+  "tier": "catalog"
+}

@@ -1,0 +1,18 @@
+{
+  "kind": "mod",
+  "id": "carnivore/working-on",
+  "name": "working-on",
+  "description": "Shows a one-line AI summary of what this session is working on, in the footer just under the prompt hint, not the status line. After each turn, and on session start, resume, clear and fork, it sends your first message (cut to 200 characters) and the last four messages (each cut to 400 characters, command output left out) to a haiku model call that uses your own Claude usage.",
+  "version": "0.1.1",
+  "author": "Carnivore",
+  "scope": [
+    "global"
+  ],
+  "hooks_modules": [
+    "./register.ts"
+  ],
+  "api_version": 1,
+  "min_app_version": "1.0.0",
+  "license": "MIT",
+  "tier": "catalog"
+}

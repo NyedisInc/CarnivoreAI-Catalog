@@ -1,0 +1,28 @@
+{
+  "kind": "cplug",
+  "id": "carnivore/mcphealth",
+  "name": "mcp health",
+  "version": "1.0.0",
+  "api_version": 1,
+  "min_app_version": "1.12.20",
+  "author": "carnivore",
+  "license": "MIT",
+  "tier": "catalog",
+  "scope": [
+    "global"
+  ],
+  "icon": "plug",
+  "default_enabled": false,
+  "permissions": [
+    {
+      "name": "notify",
+      "reason": "tells you once when an mcp server of a live session goes down, and once when it is back"
+    },
+    {
+      "name": "mcp.health.read",
+      "reason": "reads which mcp servers each live session has, their link state and the names of the programs running under each agent"
+    }
+  ],
+  "owns": {},
+  "data": []
+}

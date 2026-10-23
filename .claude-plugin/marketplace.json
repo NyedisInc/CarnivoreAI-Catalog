@@ -1,0 +1,79 @@
+{
+  "name": "carnivore",
+  "owner": {
+    "name": "NyedisInc",
+    "url": "https://github.com/NyedisInc"
+  },
+  "plugins": [
+    {
+      "name": "11-stars",
+      "source": "./skills/carnivore/11-stars",
+      "description": "Facilitator-run breakthrough brainstorming session on a topic that produces a compiled ideas document.",
+      "version": "1.0.1",
+      "author": {
+        "name": "NyedisInc",
+        "url": "https://github.com/NyedisInc"
+      }
+    },
+    {
+      "name": "design-engineer",
+      "source": "./skills/carnivore/design-engineer",
+      "description": "Expert front end design skills which should be used whenever you make any changes to a front-end of a website or application that has a UI (even a console UI).",
+      "version": "1.0.1",
+      "author": {
+        "name": "NyedisInc",
+        "url": "https://github.com/NyedisInc"
+      }
+    },
+    {
+      "name": "devils-advocate",
+      "source": "./skills/carnivore/devils-advocate",
+      "description": "Performs Devils Advocate Review (DAR) on plans and decisions.",
+      "version": "1.0.1",
+      "author": {
+        "name": "NyedisInc",
+        "url": "https://github.com/NyedisInc"
+      }
+    },
+    {
+      "name": "make-readme",
+      "source": "./skills/carnivore/make-readme",
+      "description": "Generate or update a comprehensive README.md based on deep codebase analysis.",
+      "version": "1.0.1",
+      "author": {
+        "name": "NyedisInc",
+        "url": "https://github.com/NyedisInc"
+      }
+    },
+    {
+      "name": "progress",
+      "source": "./skills/carnivore/progress",
+      "description": "Produces a concise, read-only progress report of the CURRENT session — opening with a 1-2 sentence plain-English summary of the overall goal for a non-technical reader, followed by a markdown table.",
+      "version": "1.0.1",
+      "author": {
+        "name": "NyedisInc",
+        "url": "https://github.com/NyedisInc"
+      }
+    },
+    {
+      "name": "scrooge",
+      "source": "./skills/carnivore/scrooge",
+      "description": "Use when you want to audit your Claude Code setup for wasted time, tokens and money.",
+      "version": "1.0.1",
+      "author": {
+        "name": "NyedisInc",
+        "url": "https://github.com/NyedisInc"
+      }
+    },
+    {
+      "name": "sme",
+      "source": "./skills/carnivore/sme",
+      "description": "Invoke when user says \"SME\", \"You're a SME\", or wants expert-level problem solving.",
+      "version": "1.0.1",
+      "author": {
+        "name": "NyedisInc",
+        "url": "https://github.com/NyedisInc"
+      }
+    }
+  ]
+}

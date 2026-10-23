@@ -1,0 +1,16 @@
+{
+  "kind": "theme",
+  "id": "carnivore/pokemon",
+  "name": "Pokemon",
+  "description": "Cobalt navy, Pikachu yellow, Pokeball red. Saturday-morning confidence.",
+  "version": "1.0.1",
+  "author": "Carnivore",
+  "scope": [
+    "global"
+  ],
+  "runs_script": true,
+  "api_version": 1,
+  "min_app_version": "1.0.0",
+  "license": "MIT",
+  "tier": "catalog"
+}

@@ -1,0 +1,25 @@
+{
+  "kind": "claude-code-plugin",
+  "id": "external/rea",
+  "name": "rea",
+  "description": "reverse engineer anything from your terminal or agent with one cli and mcp server",
+  "version": "6.5.1",
+  "author": "morluto",
+  "scope": [
+    "global",
+    "project"
+  ],
+  "external_code": [
+    {
+      "server": "rea",
+      "runner": "npx",
+      "package": "rea-agents",
+      "version": "6.5.0",
+      "sha256": "531717a06e92ca651aab52691190f916fac044272c01f875e22c5e293218e699"
+    }
+  ],
+  "api_version": 1,
+  "min_app_version": "1.0.0",
+  "license": "MIT",
+  "tier": "catalog"
+}

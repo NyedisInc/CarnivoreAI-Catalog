@@ -1,0 +1,19 @@
+{
+  "kind": "skill",
+  "id": "carnivore/progress",
+  "name": "progress",
+  "description": "Produces a concise, read-only progress report of the CURRENT session — opening with a 1-2 sentence plain-English summary of the overall goal for a non-technical reader, followed by a markdown table of every distinct work item (Done / In Progress / Remaining) with per-item text progress bars, per-row \"⚠️ Waiting on you\" markers for items blocked on the user, a total aggregate bar, rough",
+  "version": "1.0.1",
+  "author": "Carnivore",
+  "scope": [
+    "global",
+    "project"
+  ],
+  "harnesses": [
+    "claude"
+  ],
+  "api_version": 1,
+  "min_app_version": "1.0.0",
+  "license": "MIT",
+  "tier": "catalog"
+}

@@ -1,0 +1,16 @@
+{
+  "kind": "theme",
+  "id": "carnivore/gameboy",
+  "name": "Game Boy",
+  "description": "The whole console, not just the screen. Grey shell plastic and dark bezel around a strict DMG-01 four shade LCD terminal, with the A and B button magenta as the accent.",
+  "version": "2.0.1",
+  "author": "Carnivore",
+  "scope": [
+    "global"
+  ],
+  "runs_script": true,
+  "api_version": 1,
+  "min_app_version": "1.0.0",
+  "license": "MIT",
+  "tier": "catalog"
+}

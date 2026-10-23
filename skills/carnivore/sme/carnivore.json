@@ -1,0 +1,19 @@
+{
+  "kind": "skill",
+  "id": "carnivore/sme",
+  "name": "sme",
+  "description": "Invoke when user says \"SME\", \"You're a SME\", or wants expert-level problem solving",
+  "version": "1.0.1",
+  "author": "Carnivore",
+  "scope": [
+    "global",
+    "project"
+  ],
+  "harnesses": [
+    "claude"
+  ],
+  "api_version": 1,
+  "min_app_version": "1.0.0",
+  "license": "MIT",
+  "tier": "catalog"
+}

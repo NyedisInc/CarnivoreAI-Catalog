@@ -1,0 +1,19 @@
+{
+  "kind": "skill",
+  "id": "carnivore/devils-advocate",
+  "name": "devils-advocate",
+  "description": "Performs Devils Advocate Review (DAR) on plans and decisions. Triggers when user mentions \"devil\", \"DAR\", \"challenge this\", or wants critical review of a plan. Spawns sub-agents to challenge assumptions, find edge cases, validate from multiple perspectives (technical, UX, maintainability), and iterate until alignment before presenting refined plan.",
+  "version": "1.0.1",
+  "author": "Carnivore",
+  "scope": [
+    "global",
+    "project"
+  ],
+  "harnesses": [
+    "claude"
+  ],
+  "api_version": 1,
+  "min_app_version": "1.0.0",
+  "license": "MIT",
+  "tier": "catalog"
+}

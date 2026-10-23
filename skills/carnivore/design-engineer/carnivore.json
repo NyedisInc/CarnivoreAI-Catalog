@@ -1,0 +1,19 @@
+{
+  "kind": "skill",
+  "id": "carnivore/design-engineer",
+  "name": "design-engineer",
+  "description": "Expert front end design skills which should be used whenever you make any changes to a front-end of a website or application that has a UI (even a console UI). No matter how small of a UI / UX change, this is the skill to always use for any level of front-end development.",
+  "version": "1.0.1",
+  "author": "Carnivore",
+  "scope": [
+    "global",
+    "project"
+  ],
+  "harnesses": [
+    "claude"
+  ],
+  "api_version": 1,
+  "min_app_version": "1.0.0",
+  "license": "MIT",
+  "tier": "catalog"
+}

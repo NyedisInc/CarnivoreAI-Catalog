@@ -1,0 +1,19 @@
+{
+  "kind": "skill",
+  "id": "carnivore/make-readme",
+  "name": "make-readme",
+  "description": "Generate or update a comprehensive README.md based on deep codebase analysis",
+  "version": "1.0.1",
+  "author": "Carnivore",
+  "scope": [
+    "global",
+    "project"
+  ],
+  "harnesses": [
+    "claude"
+  ],
+  "api_version": 1,
+  "min_app_version": "1.0.0",
+  "license": "MIT",
+  "tier": "catalog"
+}
