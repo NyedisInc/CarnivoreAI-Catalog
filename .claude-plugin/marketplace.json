@@ -6,6 +6,15 @@
   },
   "plugins": [
     {
+      "name": "warez-smoke",
+      "source": "./skills/adoom/warez-smoke",
+      "description": "A tiny smoke-test skill that tells you the catalog pipeline works.",
+      "version": "1.0.0",
+      "author": {
+        "name": "adoom"
+      }
+    },
+    {
       "name": "11-stars",
       "source": "./skills/carnivore/11-stars",
       "description": "Facilitator-run breakthrough brainstorming session on a topic that produces a compiled ideas document.",
