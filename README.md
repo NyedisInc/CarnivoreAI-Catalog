@@ -8,9 +8,8 @@ each item lives at `<folder>/<publisher>/<name>/`.
 
 - `skills/` instructions an agent loads when they apply
 - `themes/` a look for the app
-- `plugins/` plugins that add commands and agents
+- `plugins/` plugins, both those that add commands and agents and those that run beside the app
 - `mods/` small additions to the app's own screens
-- `cplugs/` app extensions
 
 ## use it with claude code
 
