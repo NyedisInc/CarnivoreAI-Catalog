@@ -1,0 +1,31 @@
+{
+  "kind": "cplug",
+  "id": "adoom/warezsmoke",
+  "name": "warez smoke",
+  "description": "A minimal sidecar plugin with one read tool, used to prove the store path end to end.",
+  "version": "1.0.0",
+  "api_version": 1,
+  "min_app_version": "1.12.20",
+  "author": "adoom",
+  "license": "MIT",
+  "tier": "catalog",
+  "scope": [
+    "global"
+  ],
+  "icon": "plug",
+  "default_enabled": false,
+  "runtime": {
+    "kind": "process",
+    "language": "python",
+    "entry": "warezsmoke_main.py"
+  },
+  "network_hosts": [],
+  "permissions": [
+    {
+      "name": "notify",
+      "reason": "would tell you once if the smoke test needed your attention"
+    }
+  ],
+  "owns": {},
+  "data": []
+}
