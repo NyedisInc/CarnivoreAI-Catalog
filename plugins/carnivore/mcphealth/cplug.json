@@ -3,7 +3,7 @@
   "id": "mcphealth",
   "name": "mcp health",
   "description": "Shows which MCP servers each live session has and which are down, with an allow or block list for warnings and an optional notification when one drops.",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "entry": "mcphealth_main.py",
   "tools": [],
   "permissions": {

@@ -8,6 +8,8 @@ A port of the app's ``combine.py`` onto what a sidecar can see. THE LADDER, per 
    down, even over a connected link, and over an unknown one; running is connected when no link answered.
 3. Anything else is UNKNOWN, never connected.
 
+A LOG-ONLY server (built-in, claude.ai connector) whose newest attempt got an HTTP 404 or 501 reads UNKNOWN with reason ``not_found`` (#2627): quiet, outside ALERT_STATES, and made of values every field host already accepts (#2507).
+
 WHAT THIS CANNOT DO, AND THE APP'S VERSION CAN. No carnivore first-hand rung, no reachability probe, no transcript fold: the host
 methods carry none of that.
 """
@@ -18,7 +20,7 @@ from dataclasses import dataclass, field
 from typing import Dict, FrozenSet, Iterable, List, Mapping, Optional, Tuple
 
 from mh_vocab import (
-    ALERT_STATES, DROP_DROPPED, DROP_NEEDS_AUTH, REASON_CONNECTED, REASON_NOT_SEEN, REASON_PROCESS_GONE, REASON_PROCESS_RUNNING, SOURCE_CLIENT_LOG,
+    ALERT_STATES, DROP_DROPPED, DROP_NEEDS_AUTH, REASON_CONNECTED, REASON_NOT_FOUND, REASON_NOT_IMPLEMENTED, REASON_NOT_SEEN, REASON_PROCESS_GONE, REASON_PROCESS_RUNNING, SOURCE_CLIENT_LOG,
     SOURCE_PROBE, SOURCE_PROCESS, STATE_CONNECTED, STATE_DOWN, STATE_NEEDS_AUTH, STATE_UNKNOWN, TRANSPORT_STDIO, TRANSPORT_UNKNOWN, Health, Link,
     ServerSpec)
 
@@ -53,6 +55,15 @@ def judge(spec: ServerSpec, ev: Evidence) -> Health:
     return Health(spec.name, transport, STATE_UNKNOWN, REASON_NOT_SEEN, SOURCE_PROCESS if spec.transport == TRANSPORT_STDIO else SOURCE_PROBE)
 
 
+def _is_not_implemented(health: Health) -> bool:
+    """True when a log-only server's newest attempt got an HTTP 404 or 501: Claude Code's built-in ``claude-artifacts`` never connects. PURE.
+
+    WHY ONLY LOG-ONLY. A server in the user's own config that answers 404 is a real fault and keeps warning (:func:`judge`); a server the user
+    never configured is not theirs to fix, and any other failure of it (timeout, 500, refused) still warns. Inputs: health. Output: bool.
+    """
+    return health.state == STATE_DOWN and health.reason == REASON_NOT_IMPLEMENTED
+
+
 def judge_session(ev: Evidence) -> Tuple[Health, ...]:
     """Every server of one session: the configured ones and the log-only ones (claude.ai connectors, built-ins), excluded keys left out. PURE.
 
@@ -66,6 +77,8 @@ def judge_session(ev: Evidence) -> Tuple[Health, ...]:
         if key in out or key in ev.excluded:
             continue
         health = judge(ServerSpec(name=link.name, transport=link.transport, scope="client_log"), ev)
+        if _is_not_implemented(health):
+            health = Health(health.name, health.transport, STATE_UNKNOWN, REASON_NOT_FOUND, health.source)
         out[key] = Health(health.name, health.transport, health.state, health.reason, health.source, exact=False)
     return tuple(sorted(out.values(), key=lambda h: h.name.lower()))
 

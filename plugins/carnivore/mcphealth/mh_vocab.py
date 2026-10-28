@@ -16,6 +16,10 @@ STATE_CONNECTED, STATE_DOWN, STATE_NEEDS_AUTH, STATE_UNKNOWN = "connected", "dow
 ALERT_STATES = frozenset({STATE_DOWN, STATE_NEEDS_AUTH})
 SOURCE_CLIENT_LOG, SOURCE_PROCESS, SOURCE_PROBE = "client_log", "process", "probe"
 REASON_CONNECTED, REASON_PROCESS_RUNNING, REASON_NOT_SEEN, REASON_PROCESS_GONE = "connected", "process_running", "not_seen", "process_gone"
+#: What a newer host's ``mcp.links`` says for a newest attempt that got HTTP 404 or 501 (input only, never sent back out: field hosts' catalogs lack it).
+REASON_NOT_IMPLEMENTED = "not_implemented"
+#: The reason a log-only server's 404 is REPORTED under, a code every field host already renders ("endpoint not found").
+REASON_NOT_FOUND = "not_found"
 #: The legacy ``dropped`` list states.
 DROP_DROPPED, DROP_NEEDS_AUTH = "dropped", "needs_auth"
 
